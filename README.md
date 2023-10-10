@@ -22,3 +22,11 @@ To edit this repository in MakeCode.
 
 * for PXT/microbit
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+
+## Credits to the original author for sharing their work.
+
+1. [https://github.com/AlexandreFrolov/DS3231/](https://github.com/AlexandreFrolov/DS3231/)
+Changelog:
+    - Modified namespace from "DS3231" to "Brickcell".
+    - Added subcategory "rtc ds3231".
+    - Re-arranged blocks sequence, hide advanced controls, etc. 
