@@ -1,6 +1,24 @@
+enum daysOfTheWeek {
+    //% block="Sunday"
+    Sunday = 1,
+    //% block="Monday"
+    Monday = 2,
+    //% block="Tuesday"
+    Tuesday = 3,
+    //% block="Wednesday"
+    Wednesday = 4,
+    //% block="Thursday"
+    Thursday = 5,
+    //% block="Friday"
+    Friday = 6,
+    //% block="Saturday"
+    Saturday = 7
+}
+
 
 //% color="#FFBF00" icon="\uf12e" weight=70
 namespace Brickcell {
+
 
     const DS3231_I2C_ADDR = 0x68
 
@@ -128,8 +146,8 @@ namespace Brickcell {
         let hour = bcdToDec(getRegister(DS3231_HOURS))
         let mins = bcdToDec(getRegister(DS3231_MINUTES))
         let secs = bcdToDec(getRegister(DS3231_SECONDS))
-        let getTime: string = "" + ((hour / 10) >> 0) + hour % 10 + ":" + ((mins / 10) >> 0) + mins % 10 + ":" + ((secs / 10) >> 0) + secs % 10
-        return getTime
+        let t: string = "" + ((hour / 10) >> 0) + hour % 10 + ":" + ((mins / 10) >> 0) + mins % 10 + ":" + ((secs / 10) >> 0) + secs % 10
+        return t
     }
 
     /**
@@ -139,11 +157,10 @@ namespace Brickcell {
     //% weight=117
     //% subcategory="rtc ds3231"
     export function getDate(): string {
-        let day = getRegister(DS3231_WEEKDAY)
-        let date = getRegister(DS3231_DAY)
+        let day = getRegister(DS3231_DAY)
         let month = getRegister(DS3231_MONTH) & 0x1F
         let year = getRegister(DS3231_YEAR) + 2000
-        return `${day}:${date}:${month}:${year}`
+        return `${year}:${month}:${day}`
     }
 
     /**
